@@ -1,0 +1,11 @@
+
+.idea/
+out/
+bin/
+*.class
+*.iml
+.env
+.env.*
+*.log
+*.backup
+*.dump
