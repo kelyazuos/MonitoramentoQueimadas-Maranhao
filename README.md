@@ -1,212 +1,374 @@
+# 🔥 Sistema de Monitoramento de Queimadas no Maranhão
 
-# Sistema de Monitoramento de Queimadas no Maranhão
+### Universidade Federal do Maranhão (UFMA)
 
-## 1. Apresentação
+**Disciplina:** Paradigmas de Programação  
+**Integração acadêmica:** Banco de Dados  
+**Discentes:** Kely Souza, Gabriel Gama e Matheus Alexsander  
+**Projeto:** Sistema de Monitoramento de Queimadas no Maranhão  
+**Ano:** 2026
 
-Projeto acadêmico desenvolvido para a disciplina de
-Paradigmas de Programação, da Universidade Federal
-do Maranhão (UFMA), como parte da 3ª avaliação.
+---
 
-O sistema consiste em uma aplicação desktop
-desenvolvida em Java, com interface gráfica
-construída utilizando a biblioteca Swing.
+## 📌 Sobre o projeto
 
-A aplicação permite cadastrar, consultar, alterar
-e excluir registros de ocorrências de queimadas
-em municípios do Maranhão.
+O **Sistema de Monitoramento de Queimadas no Maranhão** é uma aplicação desktop desenvolvida em Java, utilizando a biblioteca **Swing** para a interface gráfica e o banco de dados **PostgreSQL** para armazenamento permanente das informações.
 
-## 2. Objetivo
+O sistema tem como objetivo auxiliar no registro, na organização e no gerenciamento de ocorrências de queimadas em municípios do estado do Maranhão.
 
-Desenvolver uma aplicação que demonstre, na prática,
-a utilização dos conceitos de Programação Orientada
-a Objetos (POO), especialmente herança, polimorfismo,
-abstração e encapsulamento.
+A aplicação permite cadastrar, consultar, editar e excluir ocorrências, relacionando cada registro a um município e a um agente responsável.
 
-O projeto também utiliza Collections para o
-gerenciamento dos registros e arquivos locais
-para o armazenamento permanente das informações.
+O projeto foi desenvolvido com finalidade acadêmica, aplicando conceitos de **Programação Orientada a Objetos**, **Collections**, **persistência de dados**, **SQL** e **modelagem de banco de dados**.
 
-## 3. Funcionalidades
+## 🎯 Objetivos
 
-O sistema oferece as seguintes operações:
+### Objetivo geral
 
-- Cadastrar ocorrências rurais e urbanas.
-- Consultar as ocorrências em uma tabela.
-- Alterar os dados de registros existentes.
-- Excluir registros mediante confirmação.
-- Impedir o cadastro de IDs duplicados.
-- Validar os dados informados pelo usuário.
-- Calcular um índice didático de risco.
-- Salvar e recuperar os registros em arquivo CSV.
+Desenvolver uma aplicação desktop para gerenciamento de ocorrências de queimadas no Maranhão, utilizando Java Swing e integração com banco de dados PostgreSQL.
 
-## 4. Tecnologias utilizadas
+### Objetivos específicos
 
-- Linguagem Java (JDK 21).
-- Biblioteca Swing (javax.swing).
-- Java Collections Framework (ArrayList).
-- Manipulação de arquivos com java.nio.file.
-- Visual Studio Code.
-- Git e GitHub.
+- Aplicar os conceitos de herança, polimorfismo e abstração.
+- Desenvolver uma interface gráfica utilizando Java Swing.
+- Implementar operações de cadastro, consulta, edição e exclusão.
+- Utilizar Collections para manipulação de conjuntos de objetos.
+- Realizar a persistência dos registros em banco de dados relacional.
+- Organizar informações sobre municípios, agentes, equipes e ocorrências.
+- Aplicar conceitos de modelagem conceitual, lógica e física de banco de dados.
 
-## 5. Organização das classes
+## ⚙️ Funcionalidades do sistema
 
-### Ocorrencia.java
+### 1. Cadastrar Ocorrência
 
-Classe abstrata que representa uma ocorrência
-de queimada.
+Permite registrar novas ocorrências de queimadas, informando:
 
-Contém os atributos:
+- Município;
+- Bairro ou localidade;
+- Tipo de ocorrência: rural ou urbana;
+- Data;
+- Temperatura;
+- Umidade;
+- Descrição;
+- Situação;
+- Agente responsável.
 
-- ID
-- Município
-- Data
-- Temperatura
-- Umidade
+### 2. Consultar Ocorrências
 
-Declara o método abstrato calcularRisco(),
-que deve ser implementado pelas subclasses.
+Apresenta os registros cadastrados em uma tabela, permitindo visualizar informações detalhadas de cada ocorrência.
 
-### QueimadaRural.java
+A consulta exibe o município, o tipo de ocorrência, o agente responsável, a situação e a localização, além dos demais dados ao selecionar um registro.
 
-Classe que herda de Ocorrencia.
+### 3. Editar Ocorrência
 
-Implementa calcularRisco() utilizando uma
-fórmula específica para ocorrências rurais.
+Permite atualizar informações de ocorrências anteriormente cadastradas.
 
-### QueimadaUrbana.java
+### 4. Excluir Ocorrência
 
-Classe que herda de Ocorrencia.
+Permite excluir registros existentes mediante confirmação do usuário.
 
-Implementa calcularRisco() utilizando uma
-fórmula específica para ocorrências urbanas.
+### 5. Cadastrar Municípios
 
-### GerenciadorOcorrencias.java
+Permite incluir novos municípios diretamente pela interface gráfica.
 
-Responsável pelo gerenciamento dos registros.
+### 6. Cadastrar Agentes
 
-Utiliza ArrayList<Ocorrencia> para armazenar
-as ocorrências durante a execução.
+Permite registrar agentes responsáveis pelas ocorrências, informando:
 
-Implementa os métodos:
+- Nome;
+- CPF;
+- Equipe responsável.
 
-- cadastrar()
-- listar()
-- buscarPorId()
-- alterar()
-- excluir()
+O CPF substitui o antigo campo de matrícula. No banco de dados, `id_agente` permanece como chave primária, enquanto `cpf` é um atributo único.
 
-Também realiza a leitura e a gravação
-dos registros em arquivo CSV.
+### 7. Índice de Risco Estimado
 
-### App.java
+O sistema realiza um cálculo demonstrativo baseado na temperatura e na umidade informadas.
 
-Classe principal da aplicação.
+O cálculo utiliza implementações diferentes para ocorrências rurais e urbanas, demonstrando o conceito de polimorfismo.
 
-Implementa a interface gráfica com Java Swing
-e permite ao usuário acessar as funcionalidades
-de cadastro, consulta, edição e exclusão.
+**Observação:** esse índice possui finalidade didática e não representa um método científico validado de previsão de incêndios.
 
-## 6. Conceitos de Programação Orientada a Objetos
+---
 
-### Abstração
+## 💻 Tecnologias utilizadas
 
-A classe Ocorrencia é abstrata e define
-características comuns às ocorrências de queimadas.
+| Tecnologia | Finalidade |
+|---|---|
+| Java 21 | Linguagem de programação |
+| Java Swing | Desenvolvimento da interface gráfica |
+| PostgreSQL 18 | Banco de dados relacional |
+| JDBC | Comunicação entre Java e PostgreSQL |
+| pgJDBC 42.7.14 | Driver de conexão |
+| IntelliJ IDEA | Ambiente de desenvolvimento |
+| pgAdmin 4 | Administração do banco de dados |
+| SQL | Criação, consulta e manipulação de dados |
+| Git e GitHub | Versionamento e disponibilização do projeto |
+| diagrams.net | Elaboração dos modelos conceitual e lógico |
 
-### Encapsulamento
+## 🧩 Programação Orientada a Objetos
 
-Os atributos são acessados por métodos específicos,
-como getTemperatura() e getUmidade().
+O projeto utiliza conceitos fundamentais de orientação a objetos.
 
 ### Herança
 
-As classes QueimadaRural e QueimadaUrbana
-herdam características da classe Ocorrencia.
+A classe abstrata `Ocorrencia` representa os atributos e comportamentos comuns às ocorrências de queimadas.
+
+As classes `QueimadaRural` e `QueimadaUrbana` herdam características dessa classe.
+
+```java
+abstract class Ocorrencia {
+    public abstract double calcularRisco();
+}
+```
 
 ### Polimorfismo
 
-O método calcularRisco() possui implementações
-diferentes nas subclasses QueimadaRural e
-QueimadaUrbana.
+O método `calcularRisco()` é implementado de maneira diferente nas subclasses.
 
-Dessa forma, objetos de diferentes subclasses
-podem ser tratados por referências do tipo
-Ocorrencia, executando o comportamento
-correspondente ao seu tipo.
+Dessa forma, objetos de tipos diferentes podem responder à mesma operação com comportamentos específicos.
+
+### Abstração
+
+A classe `Ocorrencia` define a estrutura geral dos registros e estabelece comportamentos que devem ser implementados pelas subclasses.
 
 ### Collections
 
-O sistema utiliza ArrayList<Ocorrencia>
-para gerenciar dinamicamente os registros.
+O sistema utiliza `ArrayList` para organizar e manipular conjuntos de ocorrências retornadas pelo banco de dados.
 
-## 7. Persistência de dados
+### Persistência de dados
 
-Os registros são armazenados no arquivo:
+Os registros são armazenados no PostgreSQL por meio de JDBC, utilizando comandos SQL e `PreparedStatement`.
 
-dados/ocorrencias.csv
+Isso permite manter as informações cadastradas mesmo após o encerramento do aplicativo.
 
-O arquivo é criado automaticamente quando
-uma ocorrência é salva.
+## 🗂️ Estrutura do projeto
 
-Ao iniciar novamente o programa, os registros
-armazenados são recuperados.
+```text
+MonitoramentoQueimadas-Maranhao/
+│
+├── src/
+│   ├── App.java
+│   ├── Conexao.java
+│   ├── GerenciadorOcorrencias.java
+│   ├── Ocorrencia.java
+│   ├── QueimadaRural.java
+│   ├── QueimadaUrbana.java
+│   └── TesteConexao.java
+│
+├── banco-de-dados/
+│   ├── 01_MODELO_FISICO_BD.sql
+│   ├── 02_DADOS_FICTICIOS.sql
+│   ├── 03_CONSULTAS_AVALIACAO.sql
+│   └── 04_TESTE_TRIGGER_SEM_PERSISTIR.sql
+│
+├── documentacao/
+│   ├── Modelos_Conceitual_E_Logico.pdf
+│   ├── Modelos_Conceitual_e_Logico_PRONTO_GITHUB.drawio
+│   └── Relatorios_academicos.pdf
+│
+├── diagrama-classes.puml
+├── README.md
+└── .gitignore
+```
 
-O campo município é codificado em Base64 para
-evitar conflitos com o separador utilizado
-no arquivo.
+### Principais classes
 
-A pasta dados não é enviada ao GitHub,
-conforme a configuração do .gitignore.
+| Classe | Responsabilidade |
+|---|---|
+| `App` | Interface gráfica e interação com o usuário |
+| `Conexao` | Conexão com o PostgreSQL |
+| `GerenciadorOcorrencias` | Gerenciamento e persistência das ocorrências |
+| `Ocorrencia` | Classe abstrata que representa uma ocorrência |
+| `QueimadaRural` | Especialização de ocorrência rural |
+| `QueimadaUrbana` | Especialização de ocorrência urbana |
+| `TesteConexao` | Verificação da conexão com o banco |
 
-## 8. Cálculo do índice de risco
+---
 
-O sistema utiliza fórmulas didáticas distintas
-para as ocorrências rurais e urbanas.
+## 🗄️ Banco de Dados
 
-Queimada rural:
+O sistema utiliza um banco de dados relacional desenvolvido em PostgreSQL.
 
-R = (temperatura * 1.5) - (umidade * 0.5)
+A modelagem contempla cinco entidades principais:
 
-Queimada urbana:
+1. **Município:** armazena os municípios cadastrados.
+2. **Equipe:** representa as equipes responsáveis pelo atendimento.
+3. **Agente:** registra os agentes vinculados às equipes.
+4. **Ocorrência:** armazena os registros das queimadas.
+5. **Atendimento:** representa a associação entre equipes e ocorrências.
 
-R = (temperatura * 1.2) - (umidade * 0.3)
+### Relacionamentos
 
-Os resultados são limitados ao intervalo
-de 0 a 100.
+- Município (1:N) Ocorrência.
+- Agente (1:N) Ocorrência.
+- Equipe (1:N) Agente.
+- Equipe (N:N) Ocorrência, por meio de Atendimento.
 
-Essas fórmulas têm finalidade exclusivamente
-acadêmica e não representam um modelo científico
-validado de previsão de queimadas.
+### Especialização
 
-## 9. Testes realizados
+A entidade Ocorrência possui duas especializações:
 
-Foram realizados testes manuais para verificar:
+- Ocorrência Rural;
+- Ocorrência Urbana.
 
-- Cadastro de ocorrências rurais e urbanas.
-- Consulta dos registros cadastrados.
-- Alteração dos dados de uma ocorrência.
-- Exclusão de registros.
-- Identificação de IDs duplicados.
-- Recuperação dos dados após reiniciar o programa.
+No modelo lógico e físico, a especialização é representada pelo atributo `tipo_ocorrencia`, na tabela `ocorrencia`.
 
-## 10. Considerações finais
+### Modelos desenvolvidos
 
-O desenvolvimento do sistema permitiu aplicar
-conceitos fundamentais da Programação Orientada
-a Objetos em uma aplicação Java com interface
-gráfica.
+O projeto contém:
 
-A utilização de herança e polimorfismo
-possibilitou a especialização dos tipos de
-ocorrência, enquanto o uso de Collections
-facilitou o gerenciamento dos registros.
+- **Modelo conceitual:** desenvolvido na notação Entidade-Relacionamento de Peter Chen.
+- **Modelo lógico:** representação das tabelas, atributos, chaves primárias e estrangeiras.
+- **Modelo físico:** implementação das estruturas em PostgreSQL.
 
-A persistência em arquivo permitiu manter
-as informações entre diferentes execuções
-do programa.
+Os arquivos dos modelos conceitual e lógico estão disponíveis em PDF e em formato editável `.drawio`, dentro da pasta `documentacao`.
 
+### Recursos SQL
 
-### Universidade Federal do Maranhão (UFMA)
-### Disciplina: Paradigmas de Programação
-### Discentes: Kely Souza, Gabriel Gama, Matheus Alexsander
-### Projeto: Sistema de Monitoramento de Queimadas no Maranhão
+O projeto também apresenta:
+
+- Consultas com funções agregadas;
+- Agrupamentos com `GROUP BY`;
+- Consultas com `HAVING`;
+- Função armazenada;
+- Trigger;
+- Relacionamentos com chaves primárias e estrangeiras.
+
+A trigger foi definida para atualizar a situação de uma ocorrência quando todos os atendimentos associados estiverem concluídos.
+
+---
+
+## 🚀 Como executar o projeto
+
+### Pré-requisitos
+
+É necessário possuir:
+
+- Java JDK 21;
+- IntelliJ IDEA ou outra IDE compatível;
+- PostgreSQL;
+- Driver JDBC do PostgreSQL;
+- Banco de dados configurado.
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/kelyazuos/MonitoramentoQueimadas-Maranhao.git
+```
+
+### 2. Abrir o projeto
+
+Abra a pasta clonada no IntelliJ IDEA.
+
+Configure o JDK 21 nas opções do projeto.
+
+### 3. Configurar o driver JDBC
+
+Adicione o driver PostgreSQL às dependências do projeto, caso ainda não esteja configurado.
+
+Driver utilizado no desenvolvimento:
+
+`postgresql-42.7.14.jar`
+
+### 4. Preparar o banco de dados
+
+No pgAdmin 4, crie um banco de dados para a aplicação.
+
+Execute os scripts SQL na seguinte ordem:
+
+1. `01_MODELO_FISICO_BD.sql` — criação das tabelas e demais estruturas.
+2. `02_DADOS_FICTICIOS.sql` — inserção de dados para demonstração.
+
+O primeiro script foi preparado para um **banco novo e vazio**. Não deve ser executado novamente em um banco que já contém as tabelas do projeto.
+
+Os demais scripts apresentam consultas e demonstrações dos recursos de Banco de Dados.
+
+### 5. Configurar a conexão
+
+Abra a classe `Conexao.java` e confira o endereço do banco.
+
+Exemplo de configuração utilizada no desenvolvimento:
+
+```text
+jdbc:postgresql://localhost:5432/monitoramento_queimadas_teste
+```
+.
+A senha do PostgreSQL é solicitada durante a execução do aplicativo.
+
+use: 07121991
+
+### 6. Executar a aplicação
+
+Execute o método `main()` da classe `App.java`.
+
+A interface gráfica será aberta, permitindo acessar as funcionalidades disponíveis.
+
+---
+
+## 🔒 Segurança e privacidade
+
+O projeto utiliza informações fictícias para fins acadêmicos.
+
+Os números de CPF utilizados em demonstrações não representam cadastros reais intencionalmente.
+
+Senhas de acesso ao PostgreSQL não devem ser publicadas no repositório.
+
+## 📚 Contexto acadêmico
+
+O projeto foi desenvolvido para aplicar os conhecimentos adquiridos nas disciplinas da Universidade Federal do Maranhão.
+
+### Paradigmas de Programação
+
+São utilizados os conceitos de:
+
+- Interface gráfica com Java Swing;
+- Cadastro, alteração e exclusão de registros;
+- Herança;
+- Polimorfismo;
+- Abstração;
+- Collections;
+- Armazenamento permanente com banco de dados.
+
+### Banco de Dados
+
+São apresentados:
+
+- Definição e modelagem do problema;
+- Modelo conceitual;
+- Modelo lógico;
+- Modelo físico;
+- Relacionamentos 1:N e N:N;
+- Especialização;
+- Consultas SQL;
+- Função armazenada;
+- Trigger.
+
+## 📄 Considerações finais
+
+O Sistema de Monitoramento de Queimadas no Maranhão demonstra a integração entre programação orientada a objetos e banco de dados relacional.
+
+A aplicação reúne uma interface gráfica em Java Swing, classes organizadas com herança e polimorfismo e mecanismos de persistência com PostgreSQL.
+
+O projeto possui finalidade educacional e constitui uma aplicação demonstrativa de gerenciamento de ocorrências, não um sistema oficial de monitoramento ambiental em tempo real.
+
+---
+
+## 👩‍💻 Equipe de desenvolvimento
+
+**Universidade Federal do Maranhão — UFMA**
+
+**Disciplina:** Paradigmas de Programação
+
+**Discentes:**
+- Kely Souza
+- Gabriel Gama
+- Matheus Alexsander
+
+**Projeto:** Sistema de Monitoramento de Queimadas no Maranhão
+
+**Ano:** 2026
+
+---
+
+**Repositório oficial do projeto:**  
+https://github.com/kelyazuos/MonitoramentoQueimadas-Maranhao
