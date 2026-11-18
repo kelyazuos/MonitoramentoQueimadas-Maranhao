@@ -19,7 +19,7 @@ public class GerenciadorOcorrencias implements AutoCloseable {
                 ON m.id_municipio = o.id_municipio
             """;
 
-    // CONECTAR AO POSTGRESQL
+    // CONECTAR COM O POSTGRESQL
     public GerenciadorOcorrencias() {
 
         JPasswordField campo = new JPasswordField();

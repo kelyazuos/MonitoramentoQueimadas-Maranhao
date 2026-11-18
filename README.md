@@ -1,12 +1,11 @@
 # 🔥 Sistema de Monitoramento de Queimadas no Maranhão
 
 ### Universidade Federal do Maranhão (UFMA)
-
 **Disciplina:** Paradigmas de Programação  
-**Integração acadêmica:** Banco de Dados  
+**Integração acadêmica com a disciplina:** Banco de Dados
+**Professora:** Vandecia Rejane Monteiro Fernandes  
 **Discentes:** Kely Souza, Gabriel Gama e Matheus Alexsander  
-**Projeto:** Sistema de Monitoramento de Queimadas no Maranhão  
-**Ano:** 2026
+**Avaliação:** 3ª Avaliação — 2026
 
 ---
 
@@ -83,6 +82,20 @@ O CPF substitui o antigo campo de matrícula. No banco de dados, `id_agente` per
 ### 7. Índice de Risco Estimado
 
 O sistema realiza um cálculo demonstrativo baseado na temperatura e na umidade informadas.
+
+# 8. Cálculo do índice de risco
+
+O sistema utiliza fórmulas didáticas distintas para as ocorrências rurais e urbanas.
+
+**Queimada rural:**
+
+`R = (temperatura × 1,5) − (umidade × 0,5)`
+
+**Queimada urbana:**
+
+`R = (temperatura × 1,2) − (umidade × 0,3)`
+
+Os resultados são limitados ao intervalo de 0 a 100.
 
 O cálculo utiliza implementações diferentes para ocorrências rurais e urbanas, demonstrando o conceito de polimorfismo.
 
@@ -295,7 +308,6 @@ jdbc:postgresql://localhost:5432/monitoramento_queimadas_teste
 .
 A senha do PostgreSQL é solicitada durante a execução do aplicativo.
 
-use: 07121991
 
 ### 6. Executar a aplicação
 

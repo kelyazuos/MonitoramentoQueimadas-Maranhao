@@ -41,7 +41,6 @@ public class App {
         }
     }
 
-    // INICIAR O SISTEMA
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(() -> {
