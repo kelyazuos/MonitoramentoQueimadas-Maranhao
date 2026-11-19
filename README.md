@@ -102,21 +102,25 @@ O cálculo utiliza implementações diferentes para ocorrências rurais e urbana
 **Observação:** esse índice possui finalidade didática e não representa um método científico validado de previsão de incêndios.
 
 ---
+## 💻 Tecnologias utilizadas e requisitos
 
-## 💻 Tecnologias utilizadas
-
-| Tecnologia | Finalidade |
+| Tecnologia | Especificação |
 |---|---|
-| Java 21 | Linguagem de programação |
-| Java Swing | Desenvolvimento da interface gráfica |
+| Linguagem | Java 21 |
+| JDK utilizado | Eclipse Temurin 21.0.13 (OpenJDK) |
+| IDE | IntelliJ IDEA 2026.3 |
+| Interface gráfica | Java Swing (`javax.swing`) |
+| Collections | Java Collections Framework (`ArrayList`) |
 | PostgreSQL 18 | Banco de dados relacional |
 | JDBC | Comunicação entre Java e PostgreSQL |
 | pgJDBC 42.7.14 | Driver de conexão |
-| IntelliJ IDEA | Ambiente de desenvolvimento |
 | pgAdmin 4 | Administração do banco de dados |
 | SQL | Criação, consulta e manipulação de dados |
 | Git e GitHub | Versionamento e disponibilização do projeto |
 | diagrams.net | Elaboração dos modelos conceitual e lógico |
+
+---
+
 
 ## 🧩 Programação Orientada a Objetos
 
@@ -263,6 +267,7 @@ A trigger foi definida para atualizar a situação de uma ocorrência quando tod
 - Driver JDBC do PostgreSQL;
 - Banco de dados configurado.
 
+|            |              
 ### 1. Clonar o repositório
 
 ```bash
@@ -303,7 +308,7 @@ Abra a classe `Conexao.java` e confira o endereço do banco.
 Exemplo de configuração utilizada no desenvolvimento:
 
 ```text
-jdbc:postgresql://localhost:5432/monitoramento_queimadas_teste
+jdbc:postgresql://localhost:5432/monitoramento_queimadas
 ```
 .
 A senha do PostgreSQL é solicitada durante a execução do aplicativo.
@@ -367,11 +372,6 @@ O projeto possui finalidade educacional e constitui uma aplicação demonstrativ
 
 ## 👩‍💻 Equipe de desenvolvimento
 
-**Universidade Federal do Maranhão — UFMA**
-
-**Disciplina:** Paradigmas de Programação
-
-**Discentes:**
 - Kely Souza
 - Gabriel Gama
 - Matheus Alexsander
