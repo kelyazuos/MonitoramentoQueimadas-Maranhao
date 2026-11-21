@@ -328,7 +328,6 @@ O projeto utiliza informações fictícias para fins acadêmicos.
 
 Os números de CPF utilizados em demonstrações não representam cadastros reais intencionalmente.
 
-Senhas de acesso ao PostgreSQL não devem ser publicadas no repositório.
 
 ## 📚 Contexto acadêmico
 
